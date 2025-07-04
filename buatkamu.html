@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You</title>
+  <style>
+    body {
+      background-color: #fef6f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+      margin: 0;
+      padding-top: 30px;
+    }
+    h1 {
+      color: #e91e63;
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+    img {
+      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      margin: 20px auto;
+      display: block;
+    }
+    p {
+      font-size: 18px;
+      color: #444;
+      margin-top: 25px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    audio {
+      display: none;
+    }
+
+    .heart {
+      position: absolute;
+      top: -50px;
+      color: red;
+      font-size: 24px;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>I Love You ❤️</h1>
+  <img src="IMG-20250702-WA0156.jpg" alt="Foto Pacarku">
+  <p>bisa kaga si jangan cantik sehari arghh.</p>
+
+  <button onclick="document.getElementById('lagu').play()">Play Lagu</button>
+  <audio id="lagu">
+    <source src="The Walters -- I Love You So.mp3" type="audio/mpeg">
+    Lagu tidak bisa diputar di browser ini.
+  </audio>
+
+  <script>
+    // Buat hati jatuh secara acak
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+      heart.textContent = "❤️";
+      document.body.appendChild(heart);
+
+      // Hapus setelah jatuh
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 300); // tiap 300ms muncul hati baru
+  </script>
+</body>
+</html>>
